@@ -1,0 +1,48 @@
+// objective: Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
+// determine if the input string is valid.
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+
+// solution:
+const assert = require("assert");
+
+// create map
+var isValid = function (s) {
+
+const obj = {
+	"(": ")",
+	"{": "}",
+	"[": "]",
+}
+
+// declare stack
+const structure = [];
+
+// loop over braces in string
+for (const paran of s) {
+	if (obj.hasOwnProperty(paran)) {
+		structure.push(paran)
+
+			// if the string isn't balanced
+  } else {
+		const closeParan = structure.pop();
+		if (paran !== obj[closeParan]) {
+			// If braces are not balanced, return false and exit
+			return false;
+		}
+	}
+}
+// depending on structure/stack length, return false or true
+return structure.length === 0;
+};
+
+// console.log(isValid('29');
+
+const a1 = isValid(s = "()"); // input
+const r1 = "true"; // output
+
+assert(r1);
+// accepted, runtime: 80ms
