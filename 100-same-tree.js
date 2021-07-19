@@ -17,6 +17,7 @@
  *   * @param {TreeNode} q
  *    * @return {boolean}
  *     */
+
 var isSameTree = function(p, q) {
   // check if binary trees are the same
   if (p === null) return q === null;
